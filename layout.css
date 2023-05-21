@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #1e1e1e;
+}
+/* header-component 가운데 정렬 어떻게 하지? */
+.header-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 179px;
+  position: relative;
+  margin-bottom: 70px;
+  /* 간격 83px 유지하면서 글자 안 잘리게 하기 위해 width 640 -> 890으로 수정함.  */
+  /* 로고랑 전자 출결 사이의 간격??? */
+  width: 890px;
+  height: 46px;
+  left: calc(50% - 640px / 2 - 138.5px);
+  top: 93px;
+}
+.header-component .logo {
+  padding-right: none;
+}
+.header-component .menu1 {
+  width: 70px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #1073de;
+}
+.header-component .menu2 {
+  width: 48px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+.header-component .menu3 {
+  width: 86px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+.header-component .menu4 {
+  width: 48px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+.header-component nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.header-component nav li {
+  display: inline;
+  margin-right: 83px;
+}
+.header-component nav a {
+  text-decoration: none;
+}
+
+.study_list {
+  position: relative;
+  top: 80px;
+  width: 170px;
+  height: 30px;
+  left: calc(50% - 640px / 2 - 138.5px);
+  margin-bottom: 30px;
+  /* Headline 2 */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+.study_list_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  gap: 229px;
+  position: relative;
+  width: 856px;
+  height: 128px;
+  left: calc(50% - 640px / 2 - 138.5px);
+  top: 93px;
+  /* left: 59px;
+  top: 70px; */
+  background: #ffffff;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.study_info {
+  width: 467px;
+  height: 54px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  background: #ffffff;
+}
+.study_list_item .java-image {
+  position: absolute;
+  left: 3.5%;
+  right: 90.65%;
+  top: 28.91%;
+  bottom: 32.03%;
+  width: 50px;
+  height: 50px;
+  background: url(java-logo-2.png);
+}
+.study_list_item .study_text {
+  position: absolute;
+  height: 24px;
+  width: 180px;
+  left: 110px;
+  top: 38px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #000000;
+  background: #ffffff;
+}
+.study_list_item .study_text2 {
+  position: absolute;
+  left: 12.85%;
+  top: 54.69%0;
+  bottom: 28.91%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  color: #adadad;
+  background: #ffffff;
+}
+.study_list_item .border_rectangle {
+  position: absolute;
+  left: 33.76%;
+  right: 66.12%;
+  top: 30.47%;
+  bottom: 28.91%;
+  background: #d9d9d9;
+}
+.study_list_item .study_schedule {
+  position: absolute;
+  left: 37.97%;
+  right: 41.94%;
+  top: 42.19%;
+  bottom: 41.41%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  color: #000000;
+  background: #ffffff;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ffffff;
+}
+
+.button1 {
+  position: absolute;
+  left: 84.81%;
+  right: 3.5%;
+  top: 15.62%;
+  bottom: 53.12%;
+  background: #ffffff;
+  border: none;
+}
+.button1 .button1-rectangle {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  left: calc(50% - 100px / 2);
+  top: calc(50% - 40px / 2);
+  background: #1e4cf4;
+  border-radius: 4px;
+}
+.button1 .button1-text {
+  /* 크기가 안 맞아서 left, top, font-size 임의대로 바꿈. */
+  margin-left: 2px;
+  position: absolute;
+  width: 66px;
+  height: 24px;
+  left: calc(50% - 66px / 2);
+  top: calc(50% - 24px / 2);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background: none;
+  color: #ffffff;
+}
+.button2 {
+  position: absolute;
+  left: 84.81%;
+  right: 3.5%;
+  top: 53.12%;
+  bottom: 15.62%;
+  background: #f9f9f9;
+  border: none;
+}
+.button2 .button2-rectangle {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+.button2 .button2-text {
+  position: absolute;
+  margin-left: 2px;
+  width: 66px;
+  height: 24px;
+  left: calc(50% - 66px / 2);
+  top: calc(50% - 24px / 2);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background: none;
+  color: #000000;
+}
+
+/* 버튼 클릭 안됨-react? */
+/* 버튼 텍스트가 가운데 정렬이 안되는데 텍스트용 버튼 하나 더 만들어야 함 */
+/* .button1 {
+  text-align: center;
+
+  width: 100px;
+  height: 40px;
+  left: calc(50% - 100px / 2);
+  top: calc(50% - 40px / 2);
+  background: #1e4cf4;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 8px;
+}
+.button1 span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 40px;
+}
+.button2 {
+  width: 100px;
+  height: 40px;
+  left: calc(50% - 100px / 2);
+  top: calc(50% - 40px / 2);
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  border: none;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+.button1-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: #1e4cf4;
+}
+.button2-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #000000;
+  background: #ffffff;
+} */
