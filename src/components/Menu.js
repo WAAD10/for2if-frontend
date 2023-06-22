@@ -1,7 +1,42 @@
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Cookies from "js-cookie";
 import styles from "../styles/Menu.module.css";
+import axios from "axios";
 
-export function Menu() {
+export function Menu({ login, logout }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const signIn = async () => {
+    const result = await login();
+    console.log(result.user.wallets.ethereum.walletId);
+
+    if (result.method !== "cancel") {
+      axios
+        .post("//localhost:3000/auth/login", {
+          uid: result.user.UID,
+          wallet: result.user.wallets.ethereum.walletId,
+        })
+        .then((response) => {
+          Cookies.set("userId", result.user.UID);
+          Cookies.set("accessToken", response.accessToken);
+          setIsLoggedIn(true);
+          alert("로그인되었습니다.");
+        })
+        .catch((e) => {
+          console.log(e);
+          alert("로그인실패.");
+        });
+    }
+  };
+
+  const signOut = () => {
+    logout();
+    Cookies.remove("userId");
+    setIsLoggedIn(false);
+    alert("로그아웃되었습니다.");
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.header}>
@@ -53,17 +88,14 @@ export function Menu() {
           >
             마이 페이지
           </NavLink>
-          <NavLink
-            to="/login"
+          <div
             className={styles.text}
-            style={({ isActive }) => {
-              return {
-                color: isActive ? "#1073ff" : "#000000",
-              };
+            onClick={() => {
+              isLoggedIn ? signOut() : signIn();
             }}
           >
-            로그인
-          </NavLink>
+            {isLoggedIn ? "로그아웃" : "로그인"}
+          </div>
         </div>
       </div>
     </div>

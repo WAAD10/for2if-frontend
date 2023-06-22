@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Menu } from "./components/Menu";
+import { signIn, signOut } from "./ramper";
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <Menu />
+        <Menu login={signIn} logout={signOut} />
         <Routes>
           <Route path="/attend" />
           <Route path="/board" />
