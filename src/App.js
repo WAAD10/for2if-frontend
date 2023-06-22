@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Menu } from "./components/Menu";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Menu } from './components/Menu';
+import AttendPage from './page/attend/AttendPage';
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <div>
         <Menu />
         <Routes>
-          <Route path="/attend" />
+          <Route path="/attend" element={<AttendPage />} />
           <Route path="/board" />
           <Route path="/mypage" />
           <Route path="/login" />
