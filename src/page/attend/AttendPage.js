@@ -1,20 +1,83 @@
 import React, { useEffect, useState } from 'react';
 import './layout.css';
+import { RingLoader } from 'react-spinners';
 import javaLogo from '../../image/java-logo-2.png';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const AttendPage = () => {
   const [isVisibleMentorPop, setIsVisibleMentorPop] = useState(false);
   const [isVisibleMenteePop, setIsVisibleMenteePop] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // 로딩 상태 추가
+  const [data, setData] = useState([]);
 
-  const data = [
-    {
-      study_id: 1,
-      study_date: '화요일 16:00 ~ 18:00',
-      study_name: '자바를 자바자바자바',
-      study_image: javaLogo,
-      // study_image: 'http://image.url.com',
-    },
-  ];
+  // {
+  //   study: [
+  //     {
+  //       study_id: 1,
+  //       study_date: "화요일 16:00 ~ 18:00",
+  //       study_name: "자바를 자바자바",
+  //       study_image: "http://image.url.com",
+  //     }
+  //   ]
+  // }
+
+  const getStudy = () => {
+    axios.get('https://for2if-backend.onrender.com/study').then((res) => {
+      console.log(res.data['study']);
+      setData(res.data['study']);
+    });
+  };
+
+  //230705
+  //로그인 확인, 안 되어 있으면 alert창
+  useEffect(() => {
+    checkLoginStatus();
+    getStudy();
+  }, []);
+
+  const checkLoginStatus = async () => {
+    try {
+      const uid = Cookies.get('userId');
+      if (uid) {
+        console.log('로그인 상태');
+      } else {
+        console.log('로그인 아닌 상태');
+      }
+    } catch (error) {
+      console.log('로그인 상태 확인 중 오류 발생:', error);
+    }
+    setIsLoading(false);
+    //necessary?
+    return (
+      <div>
+        {isLoading ? (
+          <div className="loading-spinner">
+            <RingLoader size={150} color={'#123abc'} loading={isLoading} />
+          </div>
+        ) : (
+          <div>
+            {isLoggedIn ? (
+              <p>사용자가 로그인되어 있습니다.</p>
+            ) : (
+              <p>사용자가 로그인되어 있지 않습니다.</p>
+            )}
+            {/* 나머지 컴포넌트 코드 */}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  if (isLoading) {
+    return (
+      <div className="loading-spinner">
+        <RingLoader color="#123abc" size={80} />
+      </div>
+    );
+  }
+  //230705
 
   function StudyInfo({ study_id, study_date, study_name, study_image }) {
     return (
