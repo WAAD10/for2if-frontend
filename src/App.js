@@ -1,12 +1,15 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Menu } from './components/Menu';
 import AttendPage from './page/attend/AttendPage';
+import { Menu } from "./components/Menu";
+import { signIn, signOut } from "./ramper";
+
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <Menu />
+        <Menu login={signIn} logout={signOut} />
         <Routes>
           <Route path="/attend" element={<AttendPage />} />
           <Route path="/board" />
